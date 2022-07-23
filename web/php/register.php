@@ -28,15 +28,12 @@ if (mysqli_num_rows($result) > 0) {
 
     
 } else {
-    if ($password > 6) {
+    if (strlen($password) > 5) {
+    
       $user_id = md5(rand(0,999999));
         $newpass = password_hash($password,PASSWORD_DEFAULT);
      $sql = "INSERT INTO `users`( `user_id`, `password`, `email`, `name`, `user_name`) VALUES ('$user_id','$newpass','$email','$fullname','$username')";
     $query = mysqli_query($con,$sql);
-    
-    
-    
-    
     
     
     

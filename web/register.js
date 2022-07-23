@@ -15,7 +15,7 @@ register.onsubmit = (e) => {
 
     }
 
-    formData = new FormData(loginform);
+    formData = new FormData(register);
 
     xhr.send(formData)
 
