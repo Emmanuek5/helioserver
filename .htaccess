@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^web/login   web/index.html [L]
+RewriteRule ^install/(.*)$ app/pakager/install.php?pakage=$1
+RewriteRule ^add/(.*)$ app/pakager/install.php?uploader=$1
