@@ -20,7 +20,7 @@ if (mysqli_num_rows($result) < 1) {
 
     if (password_verify($password, $password1)) {
     $user_id = $row['user_id'];
-        $_SESSION['user_name'] = $row;
+        $_SESSION['user_data'] = $row;
         $rand = rand(0,999999);
         $code = md5($rand);
         $time = time();

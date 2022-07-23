@@ -34,7 +34,13 @@ if (mysqli_num_rows($result) > 0) {
         $newpass = password_hash($password,PASSWORD_DEFAULT);
      $sql = "INSERT INTO `users`( `user_id`, `password`, `email`, `name`, `user_name`) VALUES ('$user_id','$newpass','$email','$fullname','$username')";
     $query = mysqli_query($con,$sql);
-    
+        $_SESSION['user_data'] = $row;
+        $rand = rand(0, 999999);
+        $code = md5($rand);
+        $time = time();
+        $sql = "INSERT INTO `authtokens`( `user_id`, `token`, `time`) VALUES ('$user_id','$code','$time')";
+        mysqli_query($con, $sql);
+        $_SESSION['authtoken'] = $code;
     echo ("success");
     
     } else {
