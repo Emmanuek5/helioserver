@@ -1,7 +1,7 @@
-const loginform = document.querySelector(".sign-up-form")
+const register = document.querySelector(".sign-up-form")
 
 // create a funtion to send user input
-loginform.onsubmit = (e) => {
+register.onsubmit = (e) => {
     e.preventDefault();
     var xhr = new XMLHttpRequest
     xhr.open("POST", "php/register.php")

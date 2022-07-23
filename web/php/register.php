@@ -16,24 +16,31 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 $email = $_POST['email'];
 
-
 $sql = "SELECT * FROM `users` WHERE `user_name` = '$username'";
 $result = mysqli_query($con, $sql);
 
 if (mysqli_num_rows($result) > 0) {
 
-    if ($password > 6) {
-        
-    
-
-    }else {
-        echo("Password must be at least 6 chars");
-    }
+    echo ("User Already Exists");
   
 
 
 
     
 } else {
-    echo ("User Already Exist");
+    if ($password > 6) {
+      $user_id = md5(rand(0,999999));
+        $newpass = password_hash($password,PASSWORD_DEFAULT);
+     $sql = "INSERT INTO `users`( `user_id`, `password`, `email`, `name`, `user_name`) VALUES ('$user_id','$newpass','$email','$fullname','$username')";
+    $query = mysqli_query($con,$sql);
+    
+    
+    
+    
+    
+    
+    
+    } else {
+        echo ("Password must be at least 6 chars");
+    }
 }
