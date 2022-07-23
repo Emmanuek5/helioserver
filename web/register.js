@@ -8,7 +8,7 @@ register.onsubmit = (e) => {
     xhr.onload = () => {
         var data = xhr.response
         if (data == "success") {
-
+            location.href = "web/authapp"
         } else {
             alert(data)
         }

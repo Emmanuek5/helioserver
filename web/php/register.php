@@ -35,7 +35,7 @@ if (mysqli_num_rows($result) > 0) {
      $sql = "INSERT INTO `users`( `user_id`, `password`, `email`, `name`, `user_name`) VALUES ('$user_id','$newpass','$email','$fullname','$username')";
     $query = mysqli_query($con,$sql);
     
-    
+    echo ("success");
     
     } else {
         echo ("Password must be at least 6 chars");
