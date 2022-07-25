@@ -8,7 +8,7 @@ loginform.onsubmit = (e)=>{
  xhr.onload = ()=>{
  var data = xhr.response
  if (data == "success") {
-    location.href = "web/authapp"
+    location.href = "authapp"
  }else{
     alert(data)
  }
